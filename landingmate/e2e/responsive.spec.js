@@ -1,15 +1,31 @@
 import { test, expect } from '@playwright/test';
 import { fillContact, seedCart } from './helpers.js';
 
-const noHorizontalScroll = (page) => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1);
+// En mobile, si algo desborda, Chrome agranda el layout viewport (innerWidth crece junto con el
+// contenido), así que se compara contra el ancho real del dispositivo y no contra innerWidth.
+const layoutWidth = (page) => page.evaluate(() => Math.max(document.documentElement.scrollWidth, window.innerWidth));
 
 test.describe('Diseño responsivo', () => {
-  test('home y checkout no generan scroll horizontal', async ({ page }) => {
+  test('home, carrito y checkout entran en el ancho del dispositivo', async ({ page }) => {
+    const { width } = page.viewportSize();
     await page.goto('/');
-    expect(await noHorizontalScroll(page)).toBe(true);
+    expect(await layoutWidth(page)).toBeLessThanOrEqual(width);
+    await page.getByRole('button', { name: /Abrir carrito/ }).click();
+    expect(await layoutWidth(page)).toBeLessThanOrEqual(width);
     await seedCart(page, [{ id: 'mate-imperial-negro', quantity: 1 }]);
     await page.goto('/checkout.html');
-    expect(await noHorizontalScroll(page)).toBe(true);
+    expect(await layoutWidth(page)).toBeLessThanOrEqual(width);
+  });
+
+  test('teléfono chico (360 px): nada desborda', async ({ browser, isMobile }) => {
+    test.skip(!isMobile, 'Escenario mobile');
+    const context = await browser.newContext({ viewport: { width: 360, height: 740 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
+    const page = await context.newPage();
+    for (const url of ['/', '/checkout.html']) {
+      await page.goto(url);
+      expect(await layoutWidth(page), url).toBeLessThanOrEqual(360);
+    }
+    await context.close();
   });
 
   test('mobile: menú hamburguesa accesible', async ({ page, isMobile }) => {

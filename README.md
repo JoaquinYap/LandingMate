@@ -1,7 +1,7 @@
 # Lavaditos · Tienda online de mates y termos
 
 [![CI](https://github.com/JoaquinYap/LandingMate/actions/workflows/ci.yml/badge.svg)](https://github.com/JoaquinYap/LandingMate/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-278%20unit%2Bintegración%20%C2%B7%2050%20e2e-2ea44f)
+![Tests](https://img.shields.io/badge/tests-278%20unit%2Bintegración%20%C2%B7%2052%20e2e-2ea44f)
 ![Cobertura](https://img.shields.io/badge/cobertura-99%25%20líneas-2ea44f)
 ![Accesibilidad](https://img.shields.io/badge/a11y-WCAG%202.2%20AA%20(axe)-6f42c1)
 
@@ -28,7 +28,7 @@ Todo está cubierto por un **pipeline de tests automatizados** (unitarios, de in
 ## 🧪 Pipeline de tests
 
 ```
-            ▲   E2E · Playwright          25 escenarios × 2 dispositivos (Desktop Chrome + Pixel 7)
+            ▲   E2E · Playwright          26 escenarios × 2 dispositivos (Desktop Chrome + Pixel 7)
            ▲▲▲  Integración · Vitest+jsdom  73 tests: vistas montadas sobre el HTML real + Testing Library
          ▲▲▲▲▲▲ Unitarios · Vitest         205 tests: carrito, filtros, precios, validaciones, pago, flujo
 ```
@@ -46,6 +46,7 @@ Todo está cubierto por un **pipeline de tests automatizados** (unitarios, de in
 ### Bugs reales que encontraron los tests
 
 - **El foco no entraba al carrito con "reducir movimiento" activado.** El CSS original fuerza transiciones de 0.01 ms en *todos* los elementos; como `transition-property` es `all` por defecto, la `visibility` heredada también "transicionaba" y en el instante del `focus()` el botón seguía oculto. Lo detectó un test E2E de teclado; afectaba justamente a quienes más dependen del teclado.
+- **El navbar original medía 466 px**: en teléfonos de 412 px Chrome agrandaba el layout viewport y la página se podía desplazar de costado (con el carrito abierto, los clics caían en el lugar equivocado). Lo destapó un E2E mobile que falló solo en el runner de CI; además, el test de "sin scroll horizontal" pasaba en falso porque comparaba contra `innerWidth`, que crece junto con el contenido. Ahora compara contra el ancho real del dispositivo y también se prueba a 360 px.
 - **El header sticky del checkout tapaba el campo enfocado** en mobile al mostrar errores (WCAG 2.4.11). Se resolvió con `scroll-padding-top` y quedó cubierto por un test E2E.
 - **Contraste insuficiente** en el footer, categorías y precios tachados, y un `aria-label` del logo que no coincidía con su texto visible: los marcó axe-core.
 - **Un set personalizado agregado dos veces generaba dos líneas** (el id usaba `Date.now()`); ahora el id es determinístico.

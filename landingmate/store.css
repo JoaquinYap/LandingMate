@@ -602,6 +602,12 @@ select.form-input option { background: var(--bg-secondary); color: #FFF; }
   .summary-collapsible:not([open]) .summary-toggle { margin: 0; }
 }
 
+/* El navbar original (logo + carrito + CTA + menú) medía 466px: en teléfonos agrandaba el
+   layout viewport y la página se podía desplazar de costado. El hero ya tiene su propio CTA. */
+@media (max-width: 560px) {
+  .nav-cta { display: none !important; }
+}
+
 @media (max-width: 640px) {
   .catalog-toolbar { grid-template-columns: 1fr; padding: 1rem; }
   .catalog-meta { margin-top: -1.2rem; }
@@ -621,4 +627,9 @@ select.form-input option { background: var(--bg-secondary); color: #FFF; }
   .checkout-empty, .checkout-confirmation { padding: 2rem 1.2rem; }
   .checkout-secure { font-size: 0.74rem; }
   .checkout-header .brand-slogan { display: none; }
+}
+
+@media (max-width: 400px) {
+  /* Solo el candado a la vista; el texto sigue disponible para lectores de pantalla */
+  .checkout-secure-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
