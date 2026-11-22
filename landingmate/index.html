@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavaditos · Tus costumbres preferidas | Tienda Oficial de Mates y Termos</title>
+  <meta name="description" content="Lavaditos · Tus costumbres preferidas. Descubrí nuestra exclusiva colección de mates imperiales, camioneros de algarrobo, termos de acero inoxidable y bombillas cinceladas. Envíos a todo el país y cuotas sin interés.">
+  <meta name="theme-color" content="#0F110E">
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__lavReady) document.documentElement.classList.remove('js'); }, 4000);
+  </script>
+  
+  <!-- Favicon Icon (Mate SVG) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D4AF37'><path d='M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z'/><line x1='6' y1='1' x2='6' y2='4'/><line x1='10' y1='1' x2='10' y2='4'/><line x1='14' y1='1' x2='14' y2='4'/></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-bar" aria-label="Anuncios y promociones">
+    <div class="container marquee-track">
+      <span>✨ <strong class="highlight">3 y 6 Cuotas Sin Interés</strong> en toda la tienda</span>
+      <span>🚚 <strong class="highlight">Envíos GRATIS</strong> a todo el país superando $50.000</span>
+      <span>✍️ <strong class="highlight">Grabado Láser Personalizado</strong> sin cargo en tu virola</span>
+      <span>🇦🇷 100% Artesanía Nacional de Alta Gama</span>
+    </div>
+  </aside>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand" aria-label="Ir al inicio de Lavaditos">
+        <div class="brand-symbol">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#D4AF37">
+            <path d="M17 8h1a4 4 0 0 1 0 8h-1"></path>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+            <line x1="6" y1="2" x2="6" y2="4"></line>
+            <line x1="10" y1="2" x2="10" y2="4"></line>
+            <line x1="14" y1="2" x2="14" y2="4"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">LAVADITOS</span>
+          <span class="brand-slogan">tus costumbres preferidas</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="#catalogo" class="nav-link">Colección</a></li>
+          <li><a href="#customizer" class="nav-link">Armá tu Set</a></li>
+          <li><a href="#ritual" class="nav-link">El Ritual</a></li>
+          <li><a href="#curado" class="nav-link">Guía de Curado</a></li>
+          <li><a href="#testimonios" class="nav-link">Opiniones</a></li>
+          <li><a href="#faq" class="nav-link">Preguntas</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button class="btn-icon" id="btnNavCart" aria-label="Abrir carrito de compras">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count" id="navCartCount" style="display: none;">0</span>
+        </button>
+
+        <a href="#catalogo" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.85rem;">
+          Comprar Ahora
+        </a>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menú móvil">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <button class="btn-close-mobile-nav" id="btnCloseMobileNav" aria-label="Cerrar menú">&times;</button>
+    <a href="#catalogo" class="mobile-nav-link">Colección</a>
+    <a href="#customizer" class="mobile-nav-link">Armá tu Set</a>
+    <a href="#ritual" class="mobile-nav-link">El Ritual</a>
+    <a href="#curado" class="mobile-nav-link">Guía de Curado</a>
+    <a href="#testimonios" class="mobile-nav-link">Opiniones</a>
+    <a href="#faq" class="mobile-nav-link">Preguntas</a>
+    <a href="#contacto" class="mobile-nav-link">Contacto</a>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="hero-mesh"></div>
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <!-- Hero Text -->
+        <div class="hero-content">
+          <div class="hero-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Artesanía Criolla de Alta Gama
+          </div>
+          <h1 class="hero-title">
+            El verdadero ritual argentino, <span class="gold-text">hecho para perdurar.</span>
+          </h1>
+          <p class="hero-subtitle">
+            En <strong>Lavaditos</strong> celebramos <em>tus costumbres preferidas</em>. Calabazas gruesas seleccionadas, maderas nobles de algarrobo y virolas de alpaca cinceladas a mano por maestros orfebres. Piezas únicas que cuentan historias en cada cebada.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#catalogo" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              Explorar Colección
+            </a>
+            <a href="#customizer" class="btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+              Armá tu Set a Medida
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="15000" data-prefix="+">+15.000</span>
+              <span class="stat-label">Materos Felices</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="100" data-suffix="%">100%</span>
+              <span class="stat-label">Hecho a Mano</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="4.9" data-decimals="1" data-suffix=" ★">4.9 ★</span>
+              <span class="stat-label">Calificación Promedio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Image & Floating Badges -->
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="assets/images/mate-imperial-negro.jpg" alt="Mate Imperial Negro Lavaditos con virola cincelada" fetchpriority="high" decoding="async" />
+          </div>
+
+          <!-- Floating Badge 1 -->
+          <div class="floating-card floating-card-top">
+            <div class="floating-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <div>
+              <div class="floating-card-title">Virola de Alpaca Cincelada</div>
+              <div class="floating-card-desc">Forjada a mano en relieve</div>
+            </div>
+          </div>
+
+          <!-- Floating Badge 2 -->
+          <div class="floating-card floating-card-bottom">
+            <div class="floating-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            </div>
+            <div>
+              <div class="floating-card-title">Envíos a Todo el País</div>
+              <div class="floating-card-desc">Seguimiento en tiempo real</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST SIGNALS STRIP -->
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item reveal">
+          <div class="trust-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+          </div>
+          <div class="trust-info">
+            <h4>3 y 6 Cuotas Sin Interés</h4>
+            <p>Con todas las tarjetas bancarias y Mercado Pago.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal reveal-delay-1">
+          <div class="trust-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div class="trust-info">
+            <h4>Envíos a Toda la Argentina</h4>
+            <p>Llegamos a tu puerta por Andreani y Correo Argentino.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal reveal-delay-2">
+          <div class="trust-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </div>
+          <div class="trust-info">
+            <h4>Grabado Láser Sin Cargo</h4>
+            <p>Personalizá tu virola con iniciales, fechas o nombres.</p>
+          </div>
+        </div>
+
+        <div class="trust-item reveal reveal-delay-3">
+          <div class="trust-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="trust-info">
+            <h4>Garantía de Satisfacción</h4>
+            <p>Piezas nobles seleccionadas con control de calidad riguroso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT CATALOG -->
+    <section class="section" id="catalogo">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">NUESTRA TIENDA</span>
+          <h2 class="section-title">Obras de Arte para tu <span class="gold-text">Día a Día</span></h2>
+          <p class="section-desc">
+            Cada producto en Lavaditos fue creado con materiales auténticos: cuero vacuno seleccionado, algarrobo chaqueño, alpaca de orfebre y acero inoxidable bicapa de alta conservación térmica.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="catalog-filters reveal">
+          <button class="filter-btn active" data-filter="todos">Todos los Productos</button>
+          <button class="filter-btn" data-filter="imperiales">Mates Imperiales</button>
+          <button class="filter-btn" data-filter="madera">Mates de Madera</button>
+          <button class="filter-btn" data-filter="termos">Termos de Precisión</button>
+          <button class="filter-btn" data-filter="campeones">Edición Campeones ★★★</button>
+          <button class="filter-btn" data-filter="kits">Combos & Kits</button>
+        </div>
+
+        <!-- Dynamic Product Grid -->
+        <div class="product-grid" id="productCatalogGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SET CUSTOMIZER (ARMÁ TU SET) -->
+    <section class="section" id="customizer" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">PERSONALIZADOR EXCLUSIVO</span>
+          <h2 class="section-title">Armá tu <span class="gold-text">Set Matero Soñado</span></h2>
+          <p class="section-desc">
+            Elegí tu mate favorito, combinalo con el termo y la bombilla ideal, y llevate un <strong>15% de Descuento directo</strong> con grabado láser personalizado incluido.
+          </p>
+        </div>
+
+        <div class="customizer-box reveal">
+          <div class="customizer-grid">
+            <!-- Left: Options Selection -->
+            <div class="customizer-controls">
+              <!-- Step 1: Mate -->
+              <div class="step-group">
+                <div class="step-header">
+                  <span class="step-badge">1</span>
+                  <h3 class="step-title">Elegí tu Mate</h3>
+                </div>
+                <div class="options-row">
+                  <div class="option-card cust-mate-opt selected" data-id="mate-imperial-negro">
+                    <img src="assets/images/mate-imperial-negro.jpg" alt="Imperial Negro" class="option-thumb">
+                    <span class="option-name">Imperial Negro</span>
+                    <span class="option-price">$44.900</span>
+                  </div>
+                  <div class="option-card cust-mate-opt" data-id="mate-camionero-algarrobo">
+                    <img src="assets/images/mate-camionero-algarrobo.jpg" alt="Camionero Algarrobo" class="option-thumb">
+                    <span class="option-name">Algarrobo Noble</span>
+                    <span class="option-price">$34.500</span>
+                  </div>
+                  <div class="option-card cust-mate-opt" data-id="mate-imperial-cuero-crudo">
+                    <img src="assets/images/mate-imperial-cuero-crudo.jpg" alt="Imperial Cuero Crudo" class="option-thumb">
+                    <span class="option-name">Cuero Crudo</span>
+                    <span class="option-price">$48.900</span>
+                  </div>
+                  <div class="option-card cust-mate-opt" data-id="mate-madera-guarda-pampa">
+                    <img src="assets/images/mate-madera-guarda-pampa.jpg" alt="Torpedo Pampa" class="option-thumb">
+                    <span class="option-name">Torpedo Pampa</span>
+                    <span class="option-price">$31.900</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Termo -->
+              <div class="step-group">
+                <div class="step-header">
+                  <span class="step-badge">2</span>
+                  <h3 class="step-title">Elegí tu Termo Inox 1L (28hs)</h3>
+                </div>
+                <div class="options-row">
+                  <div class="option-card cust-termo-opt selected" data-id="termo-driven-negro">
+                    <img src="assets/images/termo-driven-negro.webp" alt="Driven Inox Negro" class="option-thumb">
+                    <span class="option-name">Driven Black</span>
+                    <span class="option-price">$62.500</span>
+                  </div>
+                  <div class="option-card cust-termo-opt" data-id="termo-driven-desert-sand">
+                    <img src="assets/images/termo-driven-desert-sand.jpg" alt="Driven Desert Sand" class="option-thumb">
+                    <span class="option-name">Desert Sand</span>
+                    <span class="option-price">$64.000</span>
+                  </div>
+                  <div class="option-card cust-termo-opt" data-id="termo-campeones-del-mundo-afa">
+                    <img src="assets/images/termo-campeones-del-mundo-afa.jpg" alt="Termo Campeones AFA" class="option-thumb">
+                    <span class="option-name">3 Estrellas AFA</span>
+                    <span class="option-price">$68.900</span>
+                  </div>
+                  <div class="option-card cust-termo-opt" data-id="termo-hudson-aventura">
+                    <img src="assets/images/termo-hudson-aventura.jpg" alt="Hudson Aventura" class="option-thumb">
+                    <span class="option-name">Hudson Vintage</span>
+                    <span class="option-price">$58.000</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Bombilla -->
+              <div class="step-group">
+                <div class="step-header">
+                  <span class="step-badge">3</span>
+                  <h3 class="step-title">Elegí tu Bombilla</h3>
+                </div>
+                <div class="options-row">
+                  <div class="option-card cust-bombilla-opt selected" data-id="pico-loro">
+                    <span class="option-name">Pico de Loro Alpaca</span>
+                    <span class="option-price">$9.500</span>
+                  </div>
+                  <div class="option-card cust-bombilla-opt" data-id="acero-inox">
+                    <span class="option-name">Acero Inox Quirúrgico</span>
+                    <span class="option-price">$6.800</span>
+                  </div>
+                  <div class="option-card cust-bombilla-opt" data-id="dorada-lujo">
+                    <span class="option-name">Edición Baño Dorado</span>
+                    <span class="option-price">$12.500</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 4: Engraving -->
+              <div class="step-group">
+                <div class="step-header">
+                  <span class="step-badge">4</span>
+                  <h3 class="step-title">Grabado Láser Personalizado (¡Sin Cargo!)</h3>
+                </div>
+                <div class="engraving-input-box">
+                  <input type="text" id="customizerEngravingInput" class="engraving-input" placeholder="Escribí tus iniciales, nombre, fecha o dedicatoria (ej: 'M.B. · 18/12/22')" maxlength="35">
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Sticky Summary Box -->
+            <div class="customizer-summary">
+              <h4 class="summary-heading">Resumen de tu Set</h4>
+              <ul class="summary-list">
+                <li class="summary-item">
+                  <span id="custSummaryMate">Mate Imperial Negro</span>
+                  <span id="custSummaryMatePrice">$44.900</span>
+                </li>
+                <li class="summary-item">
+                  <span id="custSummaryTermo">Termo Driven Black</span>
+                  <span id="custSummaryTermoPrice">$62.500</span>
+                </li>
+                <li class="summary-item">
+                  <span id="custSummaryBombilla">Pico de Loro Alpaca</span>
+                  <span id="custSummaryBombillaPrice">$9.500</span>
+                </li>
+                <li class="summary-item">
+                  <span>Grabado en Virola:</span>
+                  <span id="custSummaryEngraving" style="color: var(--primary-gold);">Sin grabado adicional</span>
+                </li>
+              </ul>
+
+              <div class="summary-total-box">
+                <div class="summary-total-label">Precio Final del Set (15% OFF)</div>
+                <div class="summary-total-price" id="custSummaryTotal">$99.365</div>
+                <div class="summary-savings" id="custSummarySavings">Ahorro del 15% aplicado</div>
+              </div>
+
+              <button class="btn-primary" id="btnAddCustomKit" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                Agregar Set al Carrito
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE RITUAL STORYTELLING -->
+    <section class="section story-section" id="ritual">
+      <div class="container story-grid">
+        <div class="story-image-wrap reveal">
+          <img src="assets/images/experiencia-cebado-ritual.jpg" alt="El ritual de cebado Lavaditos con yerba y mate imperial">
+          <div class="story-pill">
+            <p>"El mate no se apura: se comparte, se conversa y se vive hasta que quede bien lavadito."</p>
+          </div>
+        </div>
+
+        <div class="story-content reveal reveal-delay-2">
+          <span class="section-tag">NUESTRA HISTORIA</span>
+          <h2 class="section-title">¿Por qué <span class="gold-text">Lavaditos</span>?</h2>
+          <p class="section-desc">
+            Porque los mejores mates son los que duran tantas horas y anécdotas que terminan lavándose entre risas sinceras, mañanas de trabajo y tardes de amigos.
+          </p>
+          <p class="section-desc" style="margin-top: 0.8rem;">
+            En <strong>Lavaditos</strong> entendemos que un mate no es un simple recipiente; es un compañero fiel. Por eso seleccionamos calabazas de paredes gruesas, maderas nobles y virolas labradas por manos artesanas argentinas, garantizando un cebado equilibrado que mantiene la espuma y el sabor intactos ronda tras ronda.
+          </p>
+
+          <div class="story-features">
+            <div class="story-feature">
+              <div class="story-feature-icon">🌿</div>
+              <div class="story-feature-content">
+                <h4>Calabaza Misionera Curada a Conciencia</h4>
+                <p>Paredes gruesas y secadas al sol de Misiones para evitar filtraciones y resaltar el aroma de la yerba mate.</p>
+              </div>
+            </div>
+
+            <div class="story-feature">
+              <div class="story-feature-icon">🔨</div>
+              <div class="story-feature-content">
+                <h4>Orfebrería en Alpaca Maciza</h4>
+                <p>Cincelados criollos y guardas pampas realizados a mano con buril por expertos plateros tradicionales.</p>
+              </div>
+            </div>
+
+            <div class="story-feature">
+              <div class="story-feature-icon">🛡️</div>
+              <div class="story-feature-content">
+                <h4>Cuero Vacuno Seleccionado y Cosido a Mano</h4>
+                <p>Terminaciones firmes, cuatro patas de apoyo rígidas y tratamiento repelente a la humedad para una vida entera.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURING GUIDE (CÓMO CURAR TU MATE) -->
+    <section class="section" id="curado">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">GUÍA DEL EXPERTO</span>
+          <h2 class="section-title">Cómo Curar tu Mate <span class="gold-text">Paso a Paso</span></h2>
+          <p class="section-desc">
+            Un buen curado sella los poros naturales de la calabaza o madera, elimina el amargor astringente inicial y previene hongos. Seguí estos simples pasos:
+          </p>
+        </div>
+
+        <div class="guide-tabs reveal">
+          <button class="guide-tab-btn active" id="tabCalabaza">Mate de Calabaza (Imperial)</button>
+          <button class="guide-tab-btn" id="tabMadera">Mate de Madera (Algarrobo)</button>
+        </div>
+
+        <!-- Panel 1: Calabaza -->
+        <div class="guide-panel active" id="panelCalabaza">
+          <div class="step-card reveal">
+            <div class="step-number-tag">01</div>
+            <h4>Llenar con Yerba Húmeda</h4>
+            <p>Colocá yerba mate usada (húmeda y tibia) hasta 3/4 de la calabaza. Agregá un chorrito de agua tibia (no hirviendo).</p>
+          </div>
+
+          <div class="step-card reveal reveal-delay-1">
+            <div class="step-number-tag">02</div>
+            <h4>Reposar 24 Horas</h4>
+            <p>Dejá reposar el mate en un lugar seco y ventilado. A medida que la yerba absorba agua, podés agregar unas gotas más.</p>
+          </div>
+
+          <div class="step-card reveal reveal-delay-2">
+            <div class="step-number-tag">03</div>
+            <h4>Raspar el Hollejo Suavemente</h4>
+            <p>Vaciá el mate y con una cucharita raspá con delicadeza las paredes internas para retirar el hollejo suelto sin dañar el fondo.</p>
+          </div>
+
+          <div class="step-card reveal reveal-delay-3">
+            <div class="step-number-tag">04</div>
+            <h4>Repetir y ¡A Cebar!</h4>
+            <p>Repetí el proceso 2 veces más. Cuando las paredes tomen un color verde oscuro parejo, tu mate Lavaditos está listo para su primer ritual.</p>
+          </div>
+        </div>
+
+        <!-- Panel 2: Madera -->
+        <div class="guide-panel" id="panelMadera">
+          <div class="step-card">
+            <div class="step-number-tag">01</div>
+            <h4>Untar con Aceite o Manteca</h4>
+            <p>Untá el interior del mate de algarrobo con una fina capa de aceite comestible, manteca o cera de abejas para hidratar la fibra.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number-tag">02</div>
+            <h4>Reposar 24 Horas</h4>
+            <p>Dejá que la madera absorba la materia grasa por completo durante un día entero. Esto sellará los poros y evitará rajaduras térmicas.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number-tag">03</div>
+            <h4>Enjuagar con Agua Tibia</h4>
+            <p>Enjuagá con agua tibia sin detergente ni esponjas abrasivas para retirar cualquier excedente superficial.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number-tag">04</div>
+            <h4>Cebada de Inicio</h4>
+            <p>Llená con yerba nueva, cebá los primeros dos termos y disfrutá del dulzor y perfume característico del algarrobo chaqueño.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS / WALL OF LOVE -->
+    <section class="section" id="testimonios" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">COMUNIDAD MATERA</span>
+          <h2 class="section-title">Rondas que nos <span class="gold-text">Eligen Cada Día</span></h2>
+          <p class="section-desc">
+            Más de 15.000 materos a lo largo de las 24 provincias argentinas disfrutan de sus mates Lavaditos. Leé sus experiencias reales:
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Review 1 -->
+          <article class="review-card reveal">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "El Mate Imperial Negro es una locura. El grosor de la calabaza se nota enseguida, la virola vino impecablemente grabada con las iniciales de mi abuelo y las 4 patas le dan una firmeza que no vi en ningún otro. 10 de 10."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">JG</div>
+              <div class="author-info">
+                <h5>Joaquín Gómez</h5>
+                <span>Villa Carlos Paz, Córdoba</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card reveal reveal-delay-1">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Compré el Termo Driven Desert Sand junto con el Mate Camionero de algarrobo. El agua aguanta hirviendo todo el viaje a la costa y el pico cebador dosifica justo, no salpica nada. Llegó en 48hs por Andreani."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">MR</div>
+              <div class="author-info">
+                <h5>Mariana Rossi</h5>
+                <span>Rosario, Santa Fe</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card reveal reveal-delay-2">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "El termo de las 3 estrellas es el orgullo de la oficina. Grabado láser nítido, la manija es comodísima para cebar mientras manejo y la atención por WhatsApp de los chicos de Lavaditos fue impecable."
+            </p>
+            <div class="review-author">
+              <div class="author-avatar">ET</div>
+              <div class="author-info">
+                <h5>Esteban Tolosa</h5>
+                <span>San Isidro, Buenos Aires</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">DUDAS FRECUENTES</span>
+          <h2 class="section-title">Todo lo que Necesitás <span class="gold-text">Saber</span></h2>
+          <p class="section-desc">
+            Respondemos las consultas más habituales sobre métodos de pago, envíos, grabados y cuidados.
+          </p>
+        </div>
+
+        <div class="faq-wrap reveal">
+          <!-- FAQ 1 -->
+          <div class="faq-item open">
+            <div class="faq-header">
+              <h4>¿Cómo funciona el grabado láser personalizado gratuito?</h4>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-content">
+              <div class="faq-content-inner">
+                <p>Al seleccionar tu mate o set, podés ingresar las iniciales, nombres, fechas o escudos que desees en la virola de alpaca. Nuestro equipo de diseño prepara el archivo vectorial y lo graba con láser de fibra óptica de alta precisión, garantizando un relieve nítido e inalterable en el tiempo.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4>¿Cuánto tardan los envíos a mi ciudad?</h4>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-content">
+              <div class="faq-content-inner">
+                <p>Despachamos todos los días hábiles a través de Andreani y Correo Argentino con código de seguimiento en línea. En CABA y Gran Buenos Aires las entregas suelen demorar de 24 a 48 hs hábiles; al interior del país, entre 2 y 4 días hábiles.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4>¿Cuáles son los medios de pago aceptados?</h4>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-content">
+              <div class="faq-content-inner">
+                <p>Podés abonar en <strong>3 y 6 Cuotas Sin Interés</strong> con tarjetas de crédito Visa, Mastercard y Cabal de cualquier banco. Si preferís abonar por <strong>Transferencia Bancaria directa</strong>, contás con un <strong>10% de descuento adicional acumulable</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4>¿Cómo limpio y cuido mi mate para que dure años?</h4>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-content">
+              <div class="faq-content-inner">
+                <p>Luego de cada cebada, retirá la yerba con una cuchara y enjuagá el interior con agua tibia (nunca dejes yerba mojada de un día para el otro). Secá con servilleta de papel y dejalo reposar boca arriba en un ambiente aireado. Jamás sumerjas el cuero en agua ni uses lavavajillas.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4>¿Qué garantía tienen los productos Lavaditos?</h4>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-content">
+              <div class="faq-content-inner">
+                <p>Todos nuestros mates de calabaza y madera cuentan con garantía por defectos de fabricación o filtraciones en la calabaza. Los termos de acero inoxidable poseen 5 años de garantía térmica oficial sobre la conservación de temperatura.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER / BANNER VIP -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <span class="section-tag">CLUB MATERO LAVADITOS</span>
+          <h2>Sumate y recibí <span class="gold-text">10% OFF</span> en tu primera compra</h2>
+          <p>Te enviamos novedades exclusivas, ingresos de calabazas seleccionadas y consejos de cebadores profesionales.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Ingresá tu correo electrónico..." required />
+            <button type="submit" class="btn-primary">Quiero mi Cupón</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contacto">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1 -->
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-symbol">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#D4AF37">
+                <path d="M17 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+                <line x1="6" y1="2" x2="6" y2="4"></line>
+                <line x1="10" y1="2" x2="10" y2="4"></line>
+                <line x1="14" y1="2" x2="14" y2="4"></line>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">LAVADITOS</span>
+              <span class="brand-slogan">tus costumbres preferidas</span>
+            </div>
+          </div>
+          <p>
+            Hacemos honor a la tradición del mate argentino, fusionando el arte del orfebre con materiales de primera selección para que tus rondas sean inolvidables.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://wa.me/5491123456789" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="footer-col">
+          <h4>Colecciones</h4>
+          <ul class="footer-links">
+            <li><a href="#catalogo">Mates Imperiales</a></li>
+            <li><a href="#catalogo">Mates de Algarrobo</a></li>
+            <li><a href="#catalogo">Termos Bicapa Inox</a></li>
+            <li><a href="#catalogo">Edición 3 Estrellas</a></li>
+            <li><a href="#customizer">Armá tu Set</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div class="footer-col">
+          <h4>Ayuda</h4>
+          <ul class="footer-links">
+            <li><a href="#curado">Guía de Curado</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+            <li><a href="#faq">Tiempos de Envío</a></li>
+            <li><a href="#faq">Garantía de Fábrica</a></li>
+            <li><a href="#contacto">Atención por WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div class="footer-col footer-contact">
+          <h4>Contacto & Showroom</h4>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Palermo Soho, CABA, Argentina
+          </p>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            +54 9 11 2345-6789
+          </p>
+          <p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            contacto@lavaditosmate.com.ar
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Lavaditos · Tus costumbres preferidas. Todos los derechos reservados.</div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <span>🇦🇷 Diseñado con pasión argentina</span>
+          <span>•</span>
+          <span>Pago Seguro SSL</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          Tu Carrito Matero
+        </h3>
+        <button class="btn-close-cart" id="btnCloseCart">&times;</button>
+      </div>
+
+      <!-- Free Shipping Tracker -->
+      <div class="shipping-progress-bar">
+        <div class="shipping-status-text" id="shippingStatusText">
+          Calculando envío...
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="shippingProgressFill"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Body -->
+      <div class="cart-body">
+        <div class="cart-empty-state" id="cartEmptyState">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <p>Tu carrito está vacío.</p>
+          <a href="#catalogo" class="btn-primary" onclick="cart.closeDrawer()" style="font-size: 0.85rem; padding: 0.6rem 1.4rem;">
+            Ver Productos
+          </a>
+        </div>
+        <div id="cartItemsContainer"></div>
+      </div>
+
+      <!-- Cart Footer -->
+      <div class="cart-footer" id="cartFooter" style="display: none;">
+        <div class="cart-totals-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotalAmount">$0</span>
+        </div>
+        <div class="cart-totals-row">
+          <span>Envío</span>
+          <span style="color: #7EC991; font-weight: 700;">A coordinar</span>
+        </div>
+        <div class="cart-totals-main">
+          <span>Total Estimado</span>
+          <span id="cartTotalAmount" style="color: var(--primary-gold);">$0</span>
+        </div>
+
+        <button class="btn-checkout-wa" id="btnCheckoutWhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.45 0 .09 5.36.09 11.97a11.9 11.9 0 0 0 1.6 6L0 24l6.22-1.63a11.9 11.9 0 0 0 5.84 1.51h.01c6.61 0 11.97-5.36 11.97-11.97a11.9 11.9 0 0 0-3.52-8.43zm-8.46 18.42h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.7 1 .98-3.61-.24-.38a9.9 9.9 0 0 1-1.52-5.33c0-5.48 4.46-9.94 9.94-9.94a9.9 9.9 0 0 1 7.03 2.91 9.9 9.9 0 0 1 2.91 7.03c0 5.48-4.46 9.93-9.94 9.93zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15s-.78.97-.95 1.17-.35.23-.65.08a8.2 8.2 0 0 1-2.42-1.49 9.07 9.07 0 0 1-1.67-2.08c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53s-.68-1.64-.93-2.25c-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.51s1.08 2.92 1.23 3.12c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35z"/></svg>
+          Finalizar Pedido por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK VIEW / PRODUCT DETAILS MODAL -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-card">
+      <button class="btn-close-modal" id="btnCloseModal">&times;</button>
+      <div class="modal-gallery">
+        <img src="" id="modalProductImg" alt="Detalle del producto" />
+      </div>
+      <div class="modal-content-box">
+        <span class="modal-category" id="modalProductCategory">Categoría</span>
+        <h3 class="modal-title" id="modalProductTitle">Nombre del Producto</h3>
+        
+        <div class="modal-price-box">
+          <span class="modal-price" id="modalProductPrice">$0</span>
+          <span class="modal-price-old" id="modalProductPriceOld"></span>
+        </div>
+
+        <p class="modal-desc" id="modalProductDesc"></p>
+
+        <ul class="modal-specs-list" id="modalProductSpecs"></ul>
+
+        <!-- Engraving Option in Modal -->
+        <div style="margin-bottom: 1.5rem;">
+          <label style="font-size: 0.8rem; font-weight: 700; color: #FFF; display: block; margin-bottom: 0.4rem;">
+            ✍️ Grabado Láser Personalizado (Opcional - Gratis):
+          </label>
+          <input type="text" id="modalEngravingInput" class="engraving-input" placeholder="Ej: Iniciales, nombre o frase corta..." maxlength="30" />
+        </div>
+
+        <button class="btn-primary" id="modalAddCartBtn" style="width: 100%;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          Agregar al Carrito
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/5491123456789?text=Hola%20Lavaditos!%20Quiero%20hacer%20una%20consulta%20sobre%20sus%20mates" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.45 0 .09 5.36.09 11.97a11.9 11.9 0 0 0 1.6 6L0 24l6.22-1.63a11.9 11.9 0 0 0 5.84 1.51h.01c6.61 0 11.97-5.36 11.97-11.97a11.9 11.9 0 0 0-3.52-8.43zm-8.46 18.42h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.7 1 .98-3.61-.24-.38a9.9 9.9 0 0 1-1.52-5.33c0-5.48 4.46-9.94 9.94-9.94a9.9 9.9 0 0 1 7.03 2.91 9.9 9.9 0 0 1 2.91 7.03c0 5.48-4.46 9.93-9.94 9.93zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15s-.78.97-.95 1.17-.35.23-.65.08a8.2 8.2 0 0 1-2.42-1.49 9.07 9.07 0 0 1-1.67-2.08c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53s-.68-1.64-.93-2.25c-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.51s1.08 2.92 1.23 3.12c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35z"/>
+    </svg>
+  </a>
+
+  <!-- UI TOAST (feedback de acciones) -->
+  <div class="ui-toast" id="uiToast" role="status" aria-live="polite"></div>
+
+  <!-- RECENT SALES TOAST -->
+  <aside class="social-proof-toast" id="socialProofToast" aria-live="polite"></aside>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>
