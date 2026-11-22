@@ -1,0 +1,102 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Un push nuevo cancela la corrida anterior de la misma rama
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: landingmate
+
+env:
+  NODE_VERSION: 22
+
+jobs:
+  lint:
+    name: Lint (ESLint)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: landingmate/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    name: Unit + integración (cobertura)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: landingmate/package-lock.json
+      - run: npm ci
+      # Falla si la cobertura baja de los umbrales definidos en vitest.config.js
+      - run: npm run coverage
+      - name: Resumen de cobertura
+        if: always()
+        run: |
+          node -e '
+            const fs = require("fs");
+            const file = "coverage/coverage-summary.json";
+            if (!fs.existsSync(file)) process.exit(0);
+            const t = JSON.parse(fs.readFileSync(file, "utf8")).total;
+            const row = (k, label) => `| ${label} | ${t[k].pct}% | ${t[k].covered}/${t[k].total} |`;
+            const md = ["### Cobertura de tests", "", "| Métrica | % | Cubierto |", "|---|---|---|",
+              row("lines", "Líneas"), row("statements", "Sentencias"), row("functions", "Funciones"), row("branches", "Ramas")].join("\n");
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + "\n");
+          '
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: landingmate/coverage/
+          retention-days: 14
+
+  e2e:
+    name: E2E (Playwright · desktop + mobile)
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: landingmate/package-lock.json
+      - run: npm ci
+      - name: Instalar Chromium para Playwright
+        run: npx playwright install --with-deps chromium
+      # Playwright compila el sitio (vite build) y prueba el build de producción
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: landingmate/playwright-report/
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: dist
+          path: landingmate/dist/
+          retention-days: 7

@@ -16,8 +16,11 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="store.css">
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -35,9 +38,9 @@
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <!-- Brand Logo -->
-      <a href="#hero" class="brand" aria-label="Ir al inicio de Lavaditos">
+      <a href="#hero" class="brand">
         <div class="brand-symbol">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#D4AF37">
+          <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#D4AF37">
             <path d="M17 8h1a4 4 0 0 1 0 8h-1"></path>
             <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
             <line x1="6" y1="2" x2="6" y2="4"></line>
@@ -65,21 +68,21 @@
 
       <!-- Nav Actions -->
       <div class="nav-actions">
-        <button class="btn-icon" id="btnNavCart" aria-label="Abrir carrito de compras">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <button type="button" class="btn-icon" id="btnNavCart" aria-label="Abrir carrito, vacío" aria-controls="cartOverlay">
+          <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"></circle>
             <circle cx="20" cy="21" r="1"></circle>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
           </svg>
-          <span class="cart-count" id="navCartCount" style="display: none;">0</span>
+          <span class="cart-count" id="navCartCount" hidden>0</span>
         </button>
 
         <a href="#catalogo" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.85rem;">
           Comprar Ahora
         </a>
 
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Menú móvil">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -90,8 +93,8 @@
   </header>
 
   <!-- Mobile Drawer Menu -->
-  <div class="mobile-nav-drawer" id="mobileNavDrawer">
-    <button class="btn-close-mobile-nav" id="btnCloseMobileNav" aria-label="Cerrar menú">&times;</button>
+  <nav class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <button type="button" class="btn-close-mobile-nav" id="btnCloseMobileNav" aria-label="Cerrar menú">&times;</button>
     <a href="#catalogo" class="mobile-nav-link">Colección</a>
     <a href="#customizer" class="mobile-nav-link">Armá tu Set</a>
     <a href="#ritual" class="mobile-nav-link">El Ritual</a>
@@ -99,9 +102,9 @@
     <a href="#testimonios" class="mobile-nav-link">Opiniones</a>
     <a href="#faq" class="mobile-nav-link">Preguntas</a>
     <a href="#contacto" class="mobile-nav-link">Contacto</a>
-  </div>
+  </nav>
 
-  <main>
+  <main id="main" tabindex="-1">
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
       <div class="hero-mesh"></div>
@@ -110,7 +113,7 @@
         <!-- Hero Text -->
         <div class="hero-content">
           <div class="hero-tag">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             Artesanía Criolla de Alta Gama
           </div>
           <h1 class="hero-title">
@@ -122,11 +125,11 @@
 
           <div class="hero-buttons">
             <a href="#catalogo" class="btn-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               Explorar Colección
             </a>
             <a href="#customizer" class="btn-secondary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
               Armá tu Set a Medida
             </a>
           </div>
@@ -156,7 +159,7 @@
           <!-- Floating Badge 1 -->
           <div class="floating-card floating-card-top">
             <div class="floating-card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </div>
             <div>
               <div class="floating-card-title">Virola de Alpaca Cincelada</div>
@@ -167,7 +170,7 @@
           <!-- Floating Badge 2 -->
           <div class="floating-card floating-card-bottom">
             <div class="floating-card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
             </div>
             <div>
               <div class="floating-card-title">Envíos a Todo el País</div>
@@ -183,7 +186,7 @@
       <div class="container trust-grid">
         <div class="trust-item reveal">
           <div class="trust-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
           </div>
           <div class="trust-info">
             <h4>3 y 6 Cuotas Sin Interés</h4>
@@ -193,7 +196,7 @@
 
         <div class="trust-item reveal reveal-delay-1">
           <div class="trust-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           </div>
           <div class="trust-info">
             <h4>Envíos a Toda la Argentina</h4>
@@ -203,7 +206,7 @@
 
         <div class="trust-item reveal reveal-delay-2">
           <div class="trust-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
           </div>
           <div class="trust-info">
             <h4>Grabado Láser Sin Cargo</h4>
@@ -213,7 +216,7 @@
 
         <div class="trust-item reveal reveal-delay-3">
           <div class="trust-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <div class="trust-info">
             <h4>Garantía de Satisfacción</h4>
@@ -234,19 +237,58 @@
           </p>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="catalog-filters reveal">
-          <button class="filter-btn active" data-filter="todos">Todos los Productos</button>
-          <button class="filter-btn" data-filter="imperiales">Mates Imperiales</button>
-          <button class="filter-btn" data-filter="madera">Mates de Madera</button>
-          <button class="filter-btn" data-filter="termos">Termos de Precisión</button>
-          <button class="filter-btn" data-filter="campeones">Edición Campeones ★★★</button>
-          <button class="filter-btn" data-filter="kits">Combos & Kits</button>
+        <!-- Búsqueda, orden y filtros -->
+        <form class="catalog-toolbar reveal" role="search" aria-label="Buscar y filtrar productos">
+          <div class="toolbar-field toolbar-search">
+            <label class="toolbar-label" for="catalogSearch">Buscar</label>
+            <div class="search-input-wrap">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="search" id="catalogSearch" class="toolbar-input" placeholder="Imperial, algarrobo, termo..." autocomplete="off" maxlength="80">
+            </div>
+          </div>
+          <div class="toolbar-field">
+            <label class="toolbar-label" for="catalogSort">Ordenar por</label>
+            <select id="catalogSort" class="toolbar-input toolbar-select"></select>
+          </div>
+          <fieldset class="toolbar-field toolbar-price">
+            <legend class="toolbar-label">Precio (ARS)</legend>
+            <div class="price-range">
+              <label class="sr-only" for="catalogMinPrice">Precio mínimo</label>
+              <input type="number" id="catalogMinPrice" class="toolbar-input" inputmode="numeric" min="0" step="1000" placeholder="Mín.">
+              <span aria-hidden="true">–</span>
+              <label class="sr-only" for="catalogMaxPrice">Precio máximo</label>
+              <input type="number" id="catalogMaxPrice" class="toolbar-input" inputmode="numeric" min="0" step="1000" placeholder="Máx.">
+            </div>
+          </fieldset>
+          <fieldset class="toolbar-field toolbar-toggles">
+            <legend class="sr-only">Disponibilidad</legend>
+            <label class="toggle-chip"><input type="checkbox" id="catalogInStock"> <span>Solo con stock</span></label>
+            <label class="toggle-chip"><input type="checkbox" id="catalogOnSale"> <span>En oferta</span></label>
+          </fieldset>
+        </form>
+
+        <!-- Categorías -->
+        <div class="catalog-filters reveal" role="group" aria-label="Categorías">
+          <button type="button" class="filter-btn active" data-filter="todos" aria-pressed="true">Todos los Productos</button>
+          <button type="button" class="filter-btn" data-filter="imperiales" aria-pressed="false">Mates Imperiales</button>
+          <button type="button" class="filter-btn" data-filter="madera" aria-pressed="false">Mates de Madera</button>
+          <button type="button" class="filter-btn" data-filter="termos" aria-pressed="false">Termos de Precisión</button>
+          <button type="button" class="filter-btn" data-filter="campeones" aria-pressed="false">Edición Campeones ★★★</button>
+          <button type="button" class="filter-btn" data-filter="kits" aria-pressed="false">Combos &amp; Kits</button>
         </div>
 
-        <!-- Dynamic Product Grid -->
-        <div class="product-grid" id="productCatalogGrid">
-          <!-- Populated by app.js -->
+        <div class="catalog-meta">
+          <p id="catalogResultsCount" class="catalog-results" role="status" aria-live="polite"></p>
+          <button type="button" id="catalogClearFilters" class="btn-link" hidden>Limpiar filtros</button>
+        </div>
+
+        <!-- Grilla dinámica (src/ui/catalog-view.js) -->
+        <div class="product-grid" id="productCatalogGrid"></div>
+
+        <div class="catalog-empty" id="catalogEmptyState" hidden>
+          <p class="catalog-empty-title">No encontramos productos con esos filtros.</p>
+          <p>Probá con otra búsqueda o ampliá el rango de precio.</p>
+          <button type="button" class="btn-secondary" data-clear-filters>Limpiar filtros</button>
         </div>
       </div>
     </section>
@@ -269,93 +311,94 @@
               <!-- Step 1: Mate -->
               <div class="step-group">
                 <div class="step-header">
-                  <span class="step-badge">1</span>
-                  <h3 class="step-title">Elegí tu Mate</h3>
+                  <span class="step-badge" aria-hidden="true">1</span>
+                  <h3 class="step-title" id="custStep1">Elegí tu Mate</h3>
                 </div>
-                <div class="options-row">
-                  <div class="option-card cust-mate-opt selected" data-id="mate-imperial-negro">
-                    <img src="assets/images/mate-imperial-negro.jpg" alt="Imperial Negro" class="option-thumb">
+                <div class="options-row" role="group" aria-labelledby="custStep1">
+                  <button type="button" class="option-card cust-mate-opt selected" data-id="mate-imperial-negro" aria-pressed="true">
+                    <img src="assets/images/mate-imperial-negro.jpg" alt="" class="option-thumb">
                     <span class="option-name">Imperial Negro</span>
                     <span class="option-price">$44.900</span>
-                  </div>
-                  <div class="option-card cust-mate-opt" data-id="mate-camionero-algarrobo">
-                    <img src="assets/images/mate-camionero-algarrobo.jpg" alt="Camionero Algarrobo" class="option-thumb">
+                  </button>
+                  <button type="button" class="option-card cust-mate-opt" data-id="mate-camionero-algarrobo" aria-pressed="false">
+                    <img src="assets/images/mate-camionero-algarrobo.jpg" alt="" class="option-thumb">
                     <span class="option-name">Algarrobo Noble</span>
                     <span class="option-price">$34.500</span>
-                  </div>
-                  <div class="option-card cust-mate-opt" data-id="mate-imperial-cuero-crudo">
-                    <img src="assets/images/mate-imperial-cuero-crudo.jpg" alt="Imperial Cuero Crudo" class="option-thumb">
+                  </button>
+                  <button type="button" class="option-card cust-mate-opt" data-id="mate-imperial-cuero-crudo" aria-pressed="false">
+                    <img src="assets/images/mate-imperial-cuero-crudo.jpg" alt="" class="option-thumb">
                     <span class="option-name">Cuero Crudo</span>
                     <span class="option-price">$48.900</span>
-                  </div>
-                  <div class="option-card cust-mate-opt" data-id="mate-madera-guarda-pampa">
-                    <img src="assets/images/mate-madera-guarda-pampa.jpg" alt="Torpedo Pampa" class="option-thumb">
+                  </button>
+                  <button type="button" class="option-card cust-mate-opt" data-id="mate-madera-guarda-pampa" aria-pressed="false">
+                    <img src="assets/images/mate-madera-guarda-pampa.jpg" alt="" class="option-thumb">
                     <span class="option-name">Torpedo Pampa</span>
                     <span class="option-price">$31.900</span>
-                  </div>
+                  </button>
                 </div>
               </div>
 
               <!-- Step 2: Termo -->
               <div class="step-group">
                 <div class="step-header">
-                  <span class="step-badge">2</span>
-                  <h3 class="step-title">Elegí tu Termo Inox 1L (28hs)</h3>
+                  <span class="step-badge" aria-hidden="true">2</span>
+                  <h3 class="step-title" id="custStep2">Elegí tu Termo Inox 1L (28hs)</h3>
                 </div>
-                <div class="options-row">
-                  <div class="option-card cust-termo-opt selected" data-id="termo-driven-negro">
-                    <img src="assets/images/termo-driven-negro.webp" alt="Driven Inox Negro" class="option-thumb">
+                <div class="options-row" role="group" aria-labelledby="custStep2">
+                  <button type="button" class="option-card cust-termo-opt selected" data-id="termo-driven-negro" aria-pressed="true">
+                    <img src="assets/images/termo-driven-negro.webp" alt="" class="option-thumb">
                     <span class="option-name">Driven Black</span>
                     <span class="option-price">$62.500</span>
-                  </div>
-                  <div class="option-card cust-termo-opt" data-id="termo-driven-desert-sand">
-                    <img src="assets/images/termo-driven-desert-sand.jpg" alt="Driven Desert Sand" class="option-thumb">
+                  </button>
+                  <button type="button" class="option-card cust-termo-opt" data-id="termo-driven-desert-sand" aria-pressed="false">
+                    <img src="assets/images/termo-driven-desert-sand.jpg" alt="" class="option-thumb">
                     <span class="option-name">Desert Sand</span>
                     <span class="option-price">$64.000</span>
-                  </div>
-                  <div class="option-card cust-termo-opt" data-id="termo-campeones-del-mundo-afa">
-                    <img src="assets/images/termo-campeones-del-mundo-afa.jpg" alt="Termo Campeones AFA" class="option-thumb">
+                  </button>
+                  <button type="button" class="option-card cust-termo-opt" data-id="termo-campeones-del-mundo-afa" aria-pressed="false">
+                    <img src="assets/images/termo-campeones-del-mundo-afa.jpg" alt="" class="option-thumb">
                     <span class="option-name">3 Estrellas AFA</span>
                     <span class="option-price">$68.900</span>
-                  </div>
-                  <div class="option-card cust-termo-opt" data-id="termo-hudson-aventura">
-                    <img src="assets/images/termo-hudson-aventura.jpg" alt="Hudson Aventura" class="option-thumb">
+                  </button>
+                  <button type="button" class="option-card cust-termo-opt" data-id="termo-hudson-aventura" aria-pressed="false">
+                    <img src="assets/images/termo-hudson-aventura.jpg" alt="" class="option-thumb">
                     <span class="option-name">Hudson Vintage</span>
                     <span class="option-price">$58.000</span>
-                  </div>
+                  </button>
                 </div>
               </div>
 
               <!-- Step 3: Bombilla -->
               <div class="step-group">
                 <div class="step-header">
-                  <span class="step-badge">3</span>
-                  <h3 class="step-title">Elegí tu Bombilla</h3>
+                  <span class="step-badge" aria-hidden="true">3</span>
+                  <h3 class="step-title" id="custStep3">Elegí tu Bombilla</h3>
                 </div>
-                <div class="options-row">
-                  <div class="option-card cust-bombilla-opt selected" data-id="pico-loro">
+                <div class="options-row" role="group" aria-labelledby="custStep3">
+                  <button type="button" class="option-card cust-bombilla-opt selected" data-id="pico-loro" aria-pressed="true">
                     <span class="option-name">Pico de Loro Alpaca</span>
                     <span class="option-price">$9.500</span>
-                  </div>
-                  <div class="option-card cust-bombilla-opt" data-id="acero-inox">
+                  </button>
+                  <button type="button" class="option-card cust-bombilla-opt" data-id="acero-inox" aria-pressed="false">
                     <span class="option-name">Acero Inox Quirúrgico</span>
                     <span class="option-price">$6.800</span>
-                  </div>
-                  <div class="option-card cust-bombilla-opt" data-id="dorada-lujo">
+                  </button>
+                  <button type="button" class="option-card cust-bombilla-opt" data-id="dorada-lujo" aria-pressed="false">
                     <span class="option-name">Edición Baño Dorado</span>
                     <span class="option-price">$12.500</span>
-                  </div>
+                  </button>
                 </div>
               </div>
 
               <!-- Step 4: Engraving -->
               <div class="step-group">
                 <div class="step-header">
-                  <span class="step-badge">4</span>
-                  <h3 class="step-title">Grabado Láser Personalizado (¡Sin Cargo!)</h3>
+                  <span class="step-badge" aria-hidden="true">4</span>
+                  <h3 class="step-title" id="custStep4">Grabado Láser Personalizado (¡Sin Cargo!)</h3>
                 </div>
                 <div class="engraving-input-box">
-                  <input type="text" id="customizerEngravingInput" class="engraving-input" placeholder="Escribí tus iniciales, nombre, fecha o dedicatoria (ej: 'M.B. · 18/12/22')" maxlength="35">
+                  <label class="sr-only" for="customizerEngravingInput">Texto del grabado para tu set</label>
+                  <input type="text" id="customizerEngravingInput" class="engraving-input" aria-describedby="custStep4" placeholder="Escribí tus iniciales, nombre, fecha o dedicatoria (ej: 'M.B. · 18/12/22')" maxlength="35">
                 </div>
               </div>
             </div>
@@ -384,12 +427,12 @@
 
               <div class="summary-total-box">
                 <div class="summary-total-label">Precio Final del Set (15% OFF)</div>
-                <div class="summary-total-price" id="custSummaryTotal">$99.365</div>
+                <div class="summary-total-price" id="custSummaryTotal" aria-live="polite">$99.365</div>
                 <div class="summary-savings" id="custSummarySavings">Ahorro del 15% aplicado</div>
               </div>
 
-              <button class="btn-primary" id="btnAddCustomKit" style="width: 100%;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              <button type="button" class="btn-primary" id="btnAddCustomKit" style="width: 100%;">
+                <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                 Agregar Set al Carrito
               </button>
             </div>
@@ -458,13 +501,13 @@
           </p>
         </div>
 
-        <div class="guide-tabs reveal">
-          <button class="guide-tab-btn active" id="tabCalabaza">Mate de Calabaza (Imperial)</button>
-          <button class="guide-tab-btn" id="tabMadera">Mate de Madera (Algarrobo)</button>
+        <div class="guide-tabs reveal" role="tablist" aria-label="Tipo de mate">
+          <button type="button" class="guide-tab-btn active" id="tabCalabaza" role="tab" aria-selected="true" aria-controls="panelCalabaza">Mate de Calabaza (Imperial)</button>
+          <button type="button" class="guide-tab-btn" id="tabMadera" role="tab" aria-selected="false" aria-controls="panelMadera" tabindex="-1">Mate de Madera (Algarrobo)</button>
         </div>
 
         <!-- Panel 1: Calabaza -->
-        <div class="guide-panel active" id="panelCalabaza">
+        <div class="guide-panel active" id="panelCalabaza" role="tabpanel" aria-labelledby="tabCalabaza" tabindex="0">
           <div class="step-card reveal">
             <div class="step-number-tag">01</div>
             <h4>Llenar con Yerba Húmeda</h4>
@@ -491,7 +534,7 @@
         </div>
 
         <!-- Panel 2: Madera -->
-        <div class="guide-panel" id="panelMadera">
+        <div class="guide-panel" id="panelMadera" role="tabpanel" aria-labelledby="tabMadera" tabindex="0" hidden>
           <div class="step-card">
             <div class="step-number-tag">01</div>
             <h4>Untar con Aceite o Manteca</h4>
@@ -593,10 +636,7 @@
         <div class="faq-wrap reveal">
           <!-- FAQ 1 -->
           <div class="faq-item open">
-            <div class="faq-header">
-              <h4>¿Cómo funciona el grabado láser personalizado gratuito?</h4>
-              <span class="faq-icon">▼</span>
-            </div>
+            <h3 class="faq-heading"><button type="button" class="faq-header faq-trigger"><span class="faq-question">¿Cómo funciona el grabado láser personalizado gratuito?</span><span class="faq-icon" aria-hidden="true">▼</span></button></h3>
             <div class="faq-content">
               <div class="faq-content-inner">
                 <p>Al seleccionar tu mate o set, podés ingresar las iniciales, nombres, fechas o escudos que desees en la virola de alpaca. Nuestro equipo de diseño prepara el archivo vectorial y lo graba con láser de fibra óptica de alta precisión, garantizando un relieve nítido e inalterable en el tiempo.</p>
@@ -606,10 +646,7 @@
 
           <!-- FAQ 2 -->
           <div class="faq-item">
-            <div class="faq-header">
-              <h4>¿Cuánto tardan los envíos a mi ciudad?</h4>
-              <span class="faq-icon">▼</span>
-            </div>
+            <h3 class="faq-heading"><button type="button" class="faq-header faq-trigger"><span class="faq-question">¿Cuánto tardan los envíos a mi ciudad?</span><span class="faq-icon" aria-hidden="true">▼</span></button></h3>
             <div class="faq-content">
               <div class="faq-content-inner">
                 <p>Despachamos todos los días hábiles a través de Andreani y Correo Argentino con código de seguimiento en línea. En CABA y Gran Buenos Aires las entregas suelen demorar de 24 a 48 hs hábiles; al interior del país, entre 2 y 4 días hábiles.</p>
@@ -619,10 +656,7 @@
 
           <!-- FAQ 3 -->
           <div class="faq-item">
-            <div class="faq-header">
-              <h4>¿Cuáles son los medios de pago aceptados?</h4>
-              <span class="faq-icon">▼</span>
-            </div>
+            <h3 class="faq-heading"><button type="button" class="faq-header faq-trigger"><span class="faq-question">¿Cuáles son los medios de pago aceptados?</span><span class="faq-icon" aria-hidden="true">▼</span></button></h3>
             <div class="faq-content">
               <div class="faq-content-inner">
                 <p>Podés abonar en <strong>3 y 6 Cuotas Sin Interés</strong> con tarjetas de crédito Visa, Mastercard y Cabal de cualquier banco. Si preferís abonar por <strong>Transferencia Bancaria directa</strong>, contás con un <strong>10% de descuento adicional acumulable</strong>.</p>
@@ -632,10 +666,7 @@
 
           <!-- FAQ 4 -->
           <div class="faq-item">
-            <div class="faq-header">
-              <h4>¿Cómo limpio y cuido mi mate para que dure años?</h4>
-              <span class="faq-icon">▼</span>
-            </div>
+            <h3 class="faq-heading"><button type="button" class="faq-header faq-trigger"><span class="faq-question">¿Cómo limpio y cuido mi mate para que dure años?</span><span class="faq-icon" aria-hidden="true">▼</span></button></h3>
             <div class="faq-content">
               <div class="faq-content-inner">
                 <p>Luego de cada cebada, retirá la yerba con una cuchara y enjuagá el interior con agua tibia (nunca dejes yerba mojada de un día para el otro). Secá con servilleta de papel y dejalo reposar boca arriba en un ambiente aireado. Jamás sumerjas el cuero en agua ni uses lavavajillas.</p>
@@ -645,10 +676,7 @@
 
           <!-- FAQ 5 -->
           <div class="faq-item">
-            <div class="faq-header">
-              <h4>¿Qué garantía tienen los productos Lavaditos?</h4>
-              <span class="faq-icon">▼</span>
-            </div>
+            <h3 class="faq-heading"><button type="button" class="faq-header faq-trigger"><span class="faq-question">¿Qué garantía tienen los productos Lavaditos?</span><span class="faq-icon" aria-hidden="true">▼</span></button></h3>
             <div class="faq-content">
               <div class="faq-content-inner">
                 <p>Todos nuestros mates de calabaza y madera cuentan con garantía por defectos de fabricación o filtraciones en la calabaza. Los termos de acero inoxidable poseen 5 años de garantía térmica oficial sobre la conservación de temperatura.</p>
@@ -667,7 +695,8 @@
           <h2>Sumate y recibí <span class="gold-text">10% OFF</span> en tu primera compra</h2>
           <p>Te enviamos novedades exclusivas, ingresos de calabazas seleccionadas y consejos de cebadores profesionales.</p>
           <form class="newsletter-form" id="newsletterForm">
-            <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Ingresá tu correo electrónico..." required />
+            <label class="sr-only" for="newsletterEmail">Tu email</label>
+            <input type="email" id="newsletterEmail" class="newsletter-input" autocomplete="email" placeholder="Ingresá tu correo electrónico..." required />
             <button type="submit" class="btn-primary">Quiero mi Cupón</button>
           </form>
         </div>
@@ -683,7 +712,7 @@
         <div class="footer-brand">
           <div class="brand">
             <div class="brand-symbol">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#D4AF37">
+              <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="#D4AF37">
                 <path d="M17 8h1a4 4 0 0 1 0 8h-1"></path>
                 <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
                 <line x1="6" y1="2" x2="6" y2="4"></line>
@@ -701,10 +730,10 @@
           </p>
           <div class="social-links">
             <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
             <a href="https://wa.me/5491123456789" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             </a>
           </div>
         </div>
@@ -737,15 +766,15 @@
         <div class="footer-col footer-contact">
           <h4>Contacto & Showroom</h4>
           <p>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             Palermo Soho, CABA, Argentina
           </p>
           <p>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             +54 9 11 2345-6789
           </p>
           <p>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             contacto@lavaditosmate.com.ar
           </p>
         </div>
@@ -764,21 +793,21 @@
 
   <!-- CART DRAWER OVERLAY -->
   <div class="cart-overlay" id="cartOverlay">
-    <div class="cart-drawer">
+    <div class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" tabindex="-1">
       <div class="cart-header">
-        <h3>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-          Tu Carrito Matero
-        </h3>
-        <button class="btn-close-cart" id="btnCloseCart">&times;</button>
+        <h2 class="cart-title" id="cartTitle">
+          <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          Tu Carrito Matero <span id="cartDrawerCount" class="cart-drawer-count"></span>
+        </h2>
+        <button type="button" class="btn-close-cart" id="btnCloseCart" aria-label="Cerrar carrito">&times;</button>
       </div>
 
       <!-- Free Shipping Tracker -->
       <div class="shipping-progress-bar">
-        <div class="shipping-status-text" id="shippingStatusText">
+        <div class="shipping-status-text" id="shippingStatusText" aria-live="polite">
           Calculando envío...
         </div>
-        <div class="progress-track">
+        <div class="progress-track" id="shippingProgressTrack" role="progressbar" aria-label="Progreso hacia el envío gratis" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="progress-fill" id="shippingProgressFill"></div>
         </div>
       </div>
@@ -786,33 +815,37 @@
       <!-- Cart Items Body -->
       <div class="cart-body">
         <div class="cart-empty-state" id="cartEmptyState">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <svg aria-hidden="true" focusable="false" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
           <p>Tu carrito está vacío.</p>
-          <a href="#catalogo" class="btn-primary" onclick="cart.closeDrawer()" style="font-size: 0.85rem; padding: 0.6rem 1.4rem;">
+          <a href="#catalogo" class="btn-primary" data-close-cart style="font-size: 0.85rem; padding: 0.6rem 1.4rem;">
             Ver Productos
           </a>
         </div>
-        <div id="cartItemsContainer"></div>
+        <ul id="cartItemsContainer" class="cart-items" aria-label="Productos en el carrito"></ul>
       </div>
 
       <!-- Cart Footer -->
-      <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-footer" id="cartFooter" hidden>
         <div class="cart-totals-row">
           <span>Subtotal</span>
           <span id="cartSubtotalAmount">$0</span>
         </div>
         <div class="cart-totals-row">
           <span>Envío</span>
-          <span style="color: #7EC991; font-weight: 700;">A coordinar</span>
+          <span class="cart-shipping-note">Se calcula en el checkout</span>
         </div>
         <div class="cart-totals-main">
           <span>Total Estimado</span>
           <span id="cartTotalAmount" style="color: var(--primary-gold);">$0</span>
         </div>
 
-        <button class="btn-checkout-wa" id="btnCheckoutWhatsApp">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.45 0 .09 5.36.09 11.97a11.9 11.9 0 0 0 1.6 6L0 24l6.22-1.63a11.9 11.9 0 0 0 5.84 1.51h.01c6.61 0 11.97-5.36 11.97-11.97a11.9 11.9 0 0 0-3.52-8.43zm-8.46 18.42h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.7 1 .98-3.61-.24-.38a9.9 9.9 0 0 1-1.52-5.33c0-5.48 4.46-9.94 9.94-9.94a9.9 9.9 0 0 1 7.03 2.91 9.9 9.9 0 0 1 2.91 7.03c0 5.48-4.46 9.93-9.94 9.93zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15s-.78.97-.95 1.17-.35.23-.65.08a8.2 8.2 0 0 1-2.42-1.49 9.07 9.07 0 0 1-1.67-2.08c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53s-.68-1.64-.93-2.25c-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.51s1.08 2.92 1.23 3.12c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35z"/></svg>
-          Finalizar Pedido por WhatsApp
+        <a href="checkout.html" class="btn-primary btn-checkout" id="btnCheckout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          Iniciar compra segura
+        </a>
+        <button type="button" class="btn-checkout-wa btn-checkout-wa--secondary" id="btnCheckoutWhatsApp">
+          <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.45 0 .09 5.36.09 11.97a11.9 11.9 0 0 0 1.6 6L0 24l6.22-1.63a11.9 11.9 0 0 0 5.84 1.51h.01c6.61 0 11.97-5.36 11.97-11.97a11.9 11.9 0 0 0-3.52-8.43zm-8.46 18.42h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.7 1 .98-3.61-.24-.38a9.9 9.9 0 0 1-1.52-5.33c0-5.48 4.46-9.94 9.94-9.94a9.9 9.9 0 0 1 7.03 2.91 9.9 9.9 0 0 1 2.91 7.03c0 5.48-4.46 9.93-9.94 9.93zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15s-.78.97-.95 1.17-.35.23-.65.08a8.2 8.2 0 0 1-2.42-1.49 9.07 9.07 0 0 1-1.67-2.08c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53s-.68-1.64-.93-2.25c-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.51s1.08 2.92 1.23 3.12c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35z"/></svg>
+          Prefiero pedir por WhatsApp
         </button>
       </div>
     </div>
@@ -820,19 +853,20 @@
 
   <!-- QUICK VIEW / PRODUCT DETAILS MODAL -->
   <div class="modal-overlay" id="productModal">
-    <div class="modal-card">
-      <button class="btn-close-modal" id="btnCloseModal">&times;</button>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle" aria-describedby="modalProductDesc" tabindex="-1">
+      <button type="button" class="btn-close-modal" id="btnCloseModal" aria-label="Cerrar detalle del producto">&times;</button>
       <div class="modal-gallery">
-        <img src="" id="modalProductImg" alt="Detalle del producto" />
+        <img src="assets/images/mate-imperial-negro.jpg" id="modalProductImg" alt="" />
       </div>
       <div class="modal-content-box">
         <span class="modal-category" id="modalProductCategory">Categoría</span>
-        <h3 class="modal-title" id="modalProductTitle">Nombre del Producto</h3>
+        <h2 class="modal-title" id="modalProductTitle">Nombre del Producto</h2>
         
         <div class="modal-price-box">
           <span class="modal-price" id="modalProductPrice">$0</span>
           <span class="modal-price-old" id="modalProductPriceOld"></span>
         </div>
+        <p class="card-stock" id="modalProductStock"></p>
 
         <p class="modal-desc" id="modalProductDesc"></p>
 
@@ -840,15 +874,15 @@
 
         <!-- Engraving Option in Modal -->
         <div style="margin-bottom: 1.5rem;">
-          <label style="font-size: 0.8rem; font-weight: 700; color: #FFF; display: block; margin-bottom: 0.4rem;">
+          <label for="modalEngravingInput" style="font-size: 0.8rem; font-weight: 700; color: #FFF; display: block; margin-bottom: 0.4rem;">
             ✍️ Grabado Láser Personalizado (Opcional - Gratis):
           </label>
           <input type="text" id="modalEngravingInput" class="engraving-input" placeholder="Ej: Iniciales, nombre o frase corta..." maxlength="30" />
         </div>
 
-        <button class="btn-primary" id="modalAddCartBtn" style="width: 100%;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-          Agregar al Carrito
+        <button type="button" class="btn-primary" id="modalAddCartBtn" style="width: 100%;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="btn-label">Agregar al Carrito</span>
         </button>
       </div>
     </div>
@@ -856,7 +890,7 @@
 
   <!-- FLOATING WHATSAPP BUTTON -->
   <a href="https://wa.me/5491123456789?text=Hola%20Lavaditos!%20Quiero%20hacer%20una%20consulta%20sobre%20sus%20mates" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+    <svg aria-hidden="true" focusable="false" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
       <path d="M20.52 3.48A11.93 11.93 0 0 0 12.06 0C5.45 0 .09 5.36.09 11.97a11.9 11.9 0 0 0 1.6 6L0 24l6.22-1.63a11.9 11.9 0 0 0 5.84 1.51h.01c6.61 0 11.97-5.36 11.97-11.97a11.9 11.9 0 0 0-3.52-8.43zm-8.46 18.42h-.01a9.92 9.92 0 0 1-5.06-1.39l-.36-.22-3.7 1 .98-3.61-.24-.38a9.9 9.9 0 0 1-1.52-5.33c0-5.48 4.46-9.94 9.94-9.94a9.9 9.9 0 0 1 7.03 2.91 9.9 9.9 0 0 1 2.91 7.03c0 5.48-4.46 9.93-9.94 9.93zm5.45-7.44c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15s-.78.97-.95 1.17-.35.23-.65.08a8.2 8.2 0 0 1-2.42-1.49 9.07 9.07 0 0 1-1.67-2.08c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53s-.68-1.64-.93-2.25c-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.51s1.08 2.92 1.23 3.12c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35z"/>
     </svg>
   </a>
@@ -865,9 +899,12 @@
   <div class="ui-toast" id="uiToast" role="status" aria-live="polite"></div>
 
   <!-- RECENT SALES TOAST -->
-  <aside class="social-proof-toast" id="socialProofToast" aria-live="polite"></aside>
+  <aside class="social-proof-toast" id="socialProofToast" aria-hidden="true"></aside>
+
+  <!-- Anuncios para lectores de pantalla -->
+  <div id="srAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
   <!-- Script -->
-  <script src="app.js"></script>
+  <script type="module" src="src/pages/home.entry.js"></script>
 </body>
 </html>

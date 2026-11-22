@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout · Lavaditos</title>
+  <meta name="description" content="Finalizá tu compra en Lavaditos: envío a todo el país, cuotas sin interés y 10% OFF pagando por transferencia.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0F110E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D4AF37'><path d='M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z'/></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="store.css">
+</head>
+<body class="checkout-page">
+
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <header class="checkout-header">
+    <div class="container checkout-header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-symbol">
+          <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#D4AF37">
+            <path d="M17 8h1a4 4 0 0 1 0 8h-1"></path>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+            <line x1="6" y1="2" x2="6" y2="4"></line>
+            <line x1="10" y1="2" x2="10" y2="4"></line>
+            <line x1="14" y1="2" x2="14" y2="4"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">LAVADITOS</span>
+          <span class="brand-slogan">tus costumbres preferidas</span>
+        </div>
+        <span class="sr-only">(volver a la tienda)</span>
+      </a>
+      <p class="checkout-secure"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Compra protegida</p>
+    </div>
+  </header>
+
+  <main id="main" class="container checkout-main" tabindex="-1">
+    <h1 class="checkout-title">Finalizá tu compra</h1>
+
+    <div class="demo-banner" role="note">
+      <strong>Modo demostración:</strong> no se realizan cobros reales.
+      Tarjeta aprobada <code>4242 4242 4242 4242</code> · rechazada <code>4000 0000 0000 0002</code> · cualquier vencimiento futuro y CVV.
+    </div>
+
+    <section id="checkoutEmpty" class="checkout-empty" hidden aria-labelledby="checkoutEmptyTitle">
+      <h2 id="checkoutEmptyTitle">Tu carrito está vacío</h2>
+      <p>Agregá algún mate, termo o set personalizado para continuar.</p>
+      <a href="index.html#catalogo" class="btn-primary">Ver productos</a>
+    </section>
+
+    <div id="checkoutApp" class="checkout-layout" hidden>
+      <div class="checkout-flow">
+        <nav aria-label="Pasos de la compra">
+          <ol class="checkout-steps" id="checkoutSteps"></ol>
+        </nav>
+
+        <!-- PASO 1 · CONTACTO -->
+        <form id="step-contacto" class="checkout-step" data-step="contacto" novalidate aria-labelledby="step-contacto-title" hidden>
+          <h2 class="step-heading" id="step-contacto-title" tabindex="-1">Datos de contacto</h2>
+          <p class="step-intro">Te enviamos la confirmación y el seguimiento del envío a este email.</p>
+          <div class="form-grid">
+            <div class="form-field form-field--wide">
+              <label class="form-label" for="email">Email</label>
+              <input id="email" name="email" type="email" class="form-input" autocomplete="email" required aria-required="true" placeholder="nombre@correo.com" aria-describedby="email-error">
+              <p class="field-error" id="email-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="fullName">Nombre y apellido</label>
+              <input id="fullName" name="fullName" type="text" class="form-input" autocomplete="name" required aria-required="true" aria-describedby="fullName-error">
+              <p class="field-error" id="fullName-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="phone">Teléfono</label>
+              <p class="field-hint" id="phone-hint">Con código de área, ej: 11 2345 6789</p>
+              <input id="phone" name="phone" type="tel" class="form-input" autocomplete="tel" required aria-required="true" aria-describedby="phone-hint phone-error" inputmode="tel">
+              <p class="field-error" id="phone-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="dni">DNI</label>
+              <p class="field-hint" id="dni-hint">Sin puntos. Lo usamos para la factura.</p>
+              <input id="dni" name="dni" type="text" class="form-input" autocomplete="off" required aria-required="true" aria-describedby="dni-hint dni-error" inputmode="numeric" maxlength="10">
+              <p class="field-error" id="dni-error" hidden></p>
+            </div>
+          </div>
+          <div class="step-actions">
+            <a href="index.html" class="btn-link">← Seguir comprando</a>
+            <button type="submit" class="btn-primary">Continuar al envío</button>
+          </div>
+        </form>
+
+        <!-- PASO 2 · ENVÍO -->
+        <form id="step-envio" class="checkout-step" data-step="envio" novalidate aria-labelledby="step-envio-title" hidden>
+          <h2 class="step-heading" id="step-envio-title" tabindex="-1">Envío</h2>
+          <fieldset class="option-list" aria-describedby="method-envio-error">
+            <legend class="form-label">¿Cómo querés recibir tu pedido?</legend>
+            <label class="radio-card" for="ship-andreani">
+              <input type="radio" id="ship-andreani" name="method" value="andreani" checked>
+              <span class="radio-card-body">
+                <span class="radio-card-title">Andreani · Envío a domicilio</span>
+                <span class="radio-card-meta">24 a 72 hs hábiles · Seguimiento online</span>
+              </span>
+              <span class="radio-card-price" data-shipping-price="andreani"></span>
+            </label>
+            <label class="radio-card" for="ship-correo">
+              <input type="radio" id="ship-correo" name="method" value="correo">
+              <span class="radio-card-body">
+                <span class="radio-card-title">Correo Argentino · Retiro en sucursal</span>
+                <span class="radio-card-meta">3 a 6 días hábiles</span>
+              </span>
+              <span class="radio-card-price" data-shipping-price="correo"></span>
+            </label>
+            <label class="radio-card" for="ship-retiro">
+              <input type="radio" id="ship-retiro" name="method" value="retiro">
+              <span class="radio-card-body">
+                <span class="radio-card-title">Retiro en showroom · Palermo Soho</span>
+                <span class="radio-card-meta">Listo en 24 hs hábiles · Lun a Sáb 10 a 19 hs</span>
+              </span>
+              <span class="radio-card-price" data-shipping-price="retiro"></span>
+            </label>
+            <p class="field-error" id="method-envio-error" hidden></p>
+          </fieldset>
+
+          <fieldset id="addressFields" class="form-grid address-fields">
+            <legend class="form-label">Dirección de entrega</legend>
+            <div class="form-field form-field--wide">
+              <label class="form-label" for="street">Calle</label>
+              <input id="street" name="street" type="text" class="form-input" autocomplete="address-line1" required aria-required="true" aria-describedby="street-error">
+              <p class="field-error" id="street-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="number">Altura</label>
+              <input id="number" name="number" type="text" class="form-input" autocomplete="off" required aria-required="true" placeholder="1234 o S/N" aria-describedby="number-error" inputmode="numeric" maxlength="5">
+              <p class="field-error" id="number-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="apartment">Piso / Depto <span class="field-optional">(opcional)</span></label>
+              <input id="apartment" name="apartment" type="text" class="form-input" autocomplete="address-line2" aria-describedby="apartment-error">
+              <p class="field-error" id="apartment-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="city">Localidad</label>
+              <input id="city" name="city" type="text" class="form-input" autocomplete="address-level2" required aria-required="true" aria-describedby="city-error">
+              <p class="field-error" id="city-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="province">Provincia</label>
+              <select id="province" name="province" class="form-input" autocomplete="address-level1" required aria-required="true" aria-describedby="province-error">
+                <option value="">Elegí una provincia</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="CABA">CABA</option>
+                <option value="Catamarca">Catamarca</option>
+                <option value="Chaco">Chaco</option>
+                <option value="Chubut">Chubut</option>
+                <option value="Córdoba">Córdoba</option>
+                <option value="Corrientes">Corrientes</option>
+                <option value="Entre Ríos">Entre Ríos</option>
+                <option value="Formosa">Formosa</option>
+                <option value="Jujuy">Jujuy</option>
+                <option value="La Pampa">La Pampa</option>
+                <option value="La Rioja">La Rioja</option>
+                <option value="Mendoza">Mendoza</option>
+                <option value="Misiones">Misiones</option>
+                <option value="Neuquén">Neuquén</option>
+                <option value="Río Negro">Río Negro</option>
+                <option value="Salta">Salta</option>
+                <option value="San Juan">San Juan</option>
+                <option value="San Luis">San Luis</option>
+                <option value="Santa Cruz">Santa Cruz</option>
+                <option value="Santa Fe">Santa Fe</option>
+                <option value="Santiago del Estero">Santiago del Estero</option>
+                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                <option value="Tucumán">Tucumán</option>
+              </select>
+              <p class="field-error" id="province-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="postalCode">Código postal</label>
+              <p class="field-hint" id="postalCode-hint">4 números o CPA (ej: C1425ABC)</p>
+              <input id="postalCode" name="postalCode" type="text" class="form-input" autocomplete="postal-code" required aria-required="true" aria-describedby="postalCode-hint postalCode-error" maxlength="8">
+              <p class="field-error" id="postalCode-error" hidden></p>
+            </div>
+          </fieldset>
+          <div class="step-actions">
+            <button type="button" class="btn-link" data-back>← Volver</button>
+            <button type="submit" class="btn-primary">Continuar al pago</button>
+          </div>
+        </form>
+
+        <!-- PASO 3 · PAGO -->
+        <form id="step-pago" class="checkout-step" data-step="pago" novalidate aria-labelledby="step-pago-title" hidden>
+          <h2 class="step-heading" id="step-pago-title" tabindex="-1">Pago</h2>
+          <fieldset class="option-list" aria-describedby="method-pago-error">
+            <legend class="form-label">Medio de pago</legend>
+            <label class="radio-card" for="pay-tarjeta">
+              <input type="radio" id="pay-tarjeta" name="method" value="tarjeta" checked>
+              <span class="radio-card-body">
+                <span class="radio-card-title">Tarjeta de crédito</span>
+                <span class="radio-card-meta">Visa, Mastercard, Amex y Cabal · Hasta 6 cuotas sin interés</span>
+              </span>
+              <span class="radio-card-price"></span>
+            </label>
+            <label class="radio-card" for="pay-transferencia">
+              <input type="radio" id="pay-transferencia" name="method" value="transferencia">
+              <span class="radio-card-body">
+                <span class="radio-card-title">Transferencia bancaria</span>
+                <span class="radio-card-meta">10% OFF adicional · Acreditación en 24 hs</span>
+              </span>
+              <span class="radio-card-price" data-payment-badge="transferencia"></span>
+            </label>
+            <label class="radio-card" for="pay-mercadopago">
+              <input type="radio" id="pay-mercadopago" name="method" value="mercadopago">
+              <span class="radio-card-body">
+                <span class="radio-card-title">Mercado Pago</span>
+                <span class="radio-card-meta">Dinero en cuenta o tarjetas guardadas</span>
+              </span>
+              <span class="radio-card-price"></span>
+            </label>
+            <p class="field-error" id="method-pago-error" hidden></p>
+          </fieldset>
+
+          <fieldset id="cardFields" class="form-grid card-fields">
+            <legend class="form-label">Datos de la tarjeta</legend>
+            <div class="form-field form-field--wide">
+              <label class="form-label" for="cardNumber">Número de tarjeta</label>
+              <div class="input-with-badge">
+                <input id="cardNumber" name="cardNumber" type="text" class="form-input" inputmode="numeric" autocomplete="cc-number" maxlength="23" placeholder="1234 5678 9012 3456" required aria-required="true" aria-describedby="cardBrand cardNumber-error">
+                <span class="card-brand" id="cardBrand" aria-live="polite"></span>
+              </div>
+              <p class="field-error" id="cardNumber-error" hidden></p>
+            </div>
+            <div class="form-field form-field--wide">
+              <label class="form-label" for="cardName">Nombre del titular</label>
+              <p class="field-hint" id="cardName-hint">Como figura en la tarjeta</p>
+              <input id="cardName" name="cardName" type="text" class="form-input" autocomplete="cc-name" required aria-required="true" aria-describedby="cardName-hint cardName-error">
+              <p class="field-error" id="cardName-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="expiry">Vencimiento</label>
+              <input id="expiry" name="expiry" type="text" class="form-input" autocomplete="cc-exp" required aria-required="true" placeholder="MM/AA" aria-describedby="expiry-error" inputmode="numeric" maxlength="5">
+              <p class="field-error" id="expiry-error" hidden></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="cvv">Código de seguridad</label>
+              <p class="field-hint" id="cvv-hint">3 números al dorso (4 al frente en Amex)</p>
+              <input id="cvv" name="cvv" type="password" class="form-input" autocomplete="cc-csc" required aria-required="true" aria-describedby="cvv-hint cvv-error" inputmode="numeric" maxlength="4">
+              <p class="field-error" id="cvv-error" hidden></p>
+            </div>
+            <div class="form-field form-field--wide">
+              <label class="form-label" for="installments">Cuotas</label>
+              <select id="installments" name="installments" class="form-input" aria-describedby="installments-error"></select>
+              <p class="field-error" id="installments-error" hidden></p>
+            </div>
+          </fieldset>
+
+          <div id="transferInfo" class="info-box" hidden>
+            <strong>10% OFF pagando por transferencia.</strong> Al confirmar te mostramos el alias y el CBU. Tenés 48 hs para transferir y enviarnos el comprobante.
+          </div>
+          <div id="mercadopagoInfo" class="info-box" hidden>
+            Al confirmar, se simula la aprobación en Mercado Pago y volvés a esta página.
+          </div>
+          <div class="step-actions">
+            <button type="button" class="btn-link" data-back>← Volver</button>
+            <button type="submit" class="btn-primary">Revisar pedido</button>
+          </div>
+        </form>
+
+        <!-- PASO 4 · REVISIÓN -->
+        <form id="step-revision" class="checkout-step" data-step="revision" novalidate aria-labelledby="step-revision-title" hidden>
+          <h2 class="step-heading" id="step-revision-title" tabindex="-1">Revisá y confirmá</h2>
+          <dl class="review-list" id="reviewSummary"></dl>
+          <div id="paymentError" class="form-alert" role="alert" hidden></div>
+          <div class="form-field">
+            <label class="checkbox-row" for="acceptTerms">
+              <input type="checkbox" id="acceptTerms" name="acceptTerms" aria-describedby="acceptTerms-error">
+              <span>Acepto los términos y condiciones y la política de cambios y devoluciones.</span>
+            </label>
+            <p class="field-error" id="acceptTerms-error" hidden></p>
+          </div>
+          <div class="step-actions">
+            <button type="button" class="btn-link" data-back>← Volver</button>
+            <button type="submit" class="btn-primary" id="btnPlaceOrder">
+              <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span class="btn-label">Confirmar y pagar</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="checkout-summary" aria-labelledby="summaryTitle">
+        <details class="summary-collapsible" id="summaryDetails" open>
+          <summary class="summary-toggle">
+            <h2 class="summary-title" id="summaryTitle">Resumen del pedido</h2>
+            <span class="summary-toggle-total" id="summaryToggleTotal" aria-hidden="true"></span>
+          </summary>
+          <ul class="summary-items" id="summaryItems" aria-label="Productos"></ul>
+          <form class="coupon-form" id="couponForm" novalidate>
+            <label class="form-label" for="couponInput">Cupón de descuento</label>
+            <div class="coupon-row">
+              <input id="couponInput" name="coupon" class="form-input" autocomplete="off" placeholder="Ej: MATERO10" aria-describedby="couponMessage">
+              <button type="submit" class="btn-secondary btn-coupon">Aplicar</button>
+            </div>
+            <p class="coupon-message" id="couponMessage" aria-live="polite"></p>
+          </form>
+          <dl class="summary-totals" id="summaryTotals"></dl>
+        </details>
+      </aside>
+    </div>
+
+    <section id="checkoutConfirmation" class="checkout-confirmation" hidden aria-labelledby="confirmationTitle"></section>
+  </main>
+
+  <footer class="checkout-footer">
+    <div class="container">
+      <p>&copy; 2026 Lavaditos · Tus costumbres preferidas. Sitio de demostración: los pagos son simulados.</p>
+    </div>
+  </footer>
+
+  <div class="ui-toast" id="uiToast" role="status" aria-live="polite"></div>
+  <div id="srAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="src/pages/checkout.entry.js"></script>
+</body>
+</html>
